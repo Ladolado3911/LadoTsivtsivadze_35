@@ -135,6 +135,7 @@
 		2451EEF1267B346C0049636C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F5DBB54267B9F0B008811FB /* Cells */,
 				2451EED9267B33250049636C /* MainController.swift */,
 				2451EEDB267B33250049636C /* Main.storyboard */,
 			);
@@ -254,6 +255,13 @@
 				3F5DBB50267B876F008811FB /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F5DBB54267B9F0B008811FB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

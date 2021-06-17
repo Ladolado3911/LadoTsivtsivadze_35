@@ -33,6 +33,10 @@ final class UsersManager: UsersManagerProtocol {
         return entities
     }
     
+    var loggedInUsers: [User]? {
+        return users!.filter { $0.isLoggedin == true }
+    }
+    
     var loggedInUser: User? {
         guard let userObject = userObject else { return nil }
         guard let entities = getUsers(managedObject: userObject) else { return nil }
@@ -72,7 +76,7 @@ final class UsersManager: UsersManagerProtocol {
             return nil
         }
     }
-    
+
     func getUser(byUsername name: String) -> User? {
         guard let users = users else {
             print("first guard returned nil")
@@ -101,7 +105,7 @@ final class UsersManager: UsersManagerProtocol {
         }
         persistent.read(with: user, using: testPredicate, completion: completion)
     }
-    
+
     func makeUserLoggedIn(bool bl: Bool, completion: @escaping (Bool) -> Void) {
         guard let context = context else { return }
         

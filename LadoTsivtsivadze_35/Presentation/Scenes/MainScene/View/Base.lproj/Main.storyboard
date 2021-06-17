@@ -15,10 +15,36 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PM6-Av-VwQ">
+                                <rect key="frame" x="20" y="160" width="374" height="620"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3j-9t-MHu">
+                                <rect key="frame" x="20" y="800" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sxi-0M-dkt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T3j-9t-MHu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5Y9-mn-isN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T3j-9t-MHu" secondAttribute="trailing" constant="20" id="9NA-xg-XwF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PM6-Av-VwQ" secondAttribute="trailing" constant="20" id="Gxg-6u-1Wt"/>
+                            <constraint firstItem="T3j-9t-MHu" firstAttribute="top" secondItem="PM6-Av-VwQ" secondAttribute="bottom" constant="20" id="Sg9-YD-rEp"/>
+                            <constraint firstItem="PM6-Av-VwQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZzZ-MD-Xgh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T3j-9t-MHu" secondAttribute="bottom" constant="20" id="aPv-uB-N9F"/>
+                            <constraint firstItem="PM6-Av-VwQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="u46-2Z-s2B"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main Page" id="Iws-Zd-SMO"/>
+                    <connections>
+                        <outlet property="tblView" destination="PM6-Av-VwQ" id="qIs-kL-abL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
