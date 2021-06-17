@@ -25,6 +25,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     
     func login(username name: String, password pass: String) {
         // create code here
+        //usersManager.login(usingPassword: <#T##String#>, completion: <#T##(Bool) -> Void#>)
         
     }
 }

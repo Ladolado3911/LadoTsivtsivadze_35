@@ -11,7 +11,7 @@ import CoreData
 
 protocol UsersManagerProtocol: BasePersistentProtocol {
     func register(usingPassword pass: String, usingUsername username: String, completion: @escaping (Bool) -> Void)
-    func login(usingPassword pass: String, completion: @escaping (Bool) -> Void)
+    func login(usingPassword pass: String, usingUsername username: String, completion: @escaping (Bool) -> Void)
     
     init(with persistent: PersistentManagerProtocol)
 }
@@ -33,11 +33,12 @@ final class UsersManager: UsersManagerProtocol {
         persistent.create(with: user, completion: completion)
     }
     
-    func login(usingPassword pass: String, completion: @escaping (Bool) -> Void) {
+    func login(usingPassword pass: String, usingUsername username: String, completion: @escaping (Bool) -> Void) {
         guard let context = context else { return }
         
         let user = User(context: context)
-        let predicate = NSPredicate(format: "%K = %@", "password", pass)
-        persistent.read(with: user, using: predicate, completion: completion)
+        //let predicate = NSPredicate(format: "%K = %@", "password", pass)
+        let testPredicate = NSPredicate(format: "username == '\(username)' && password == '\(pass)'")
+        persistent.read(with: user, using: testPredicate, completion: completion)
     }
 }
