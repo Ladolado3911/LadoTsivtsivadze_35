@@ -27,6 +27,12 @@ final class UsersManager: UsersManagerProtocol {
         return obj
     }
     
+    var users: [User]? {
+        guard let userObject = userObject else { return nil }
+        guard let entities = getUsers(managedObject: userObject) else { return nil }
+        return entities
+    }
+    
     var loggedInUser: User? {
         return nil
     }
@@ -42,6 +48,38 @@ final class UsersManager: UsersManagerProtocol {
         user.username = username
         user.password = pass
         persistent.create(with: user, completion: completion)
+    }
+    
+    func getUsers(managedObject obj: NSManagedObject) -> [User]? {
+        guard let context = context else { return nil }
+        guard let name = obj.entity.name else { return nil }
+        let request = NSFetchRequest<NSManagedObject>(entityName: name)
+        
+        do {
+            let entities = try context.fetch(request) as? [User]
+            return entities
+        }
+        catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    func getUser(byUsername name: String) -> User? {
+        guard let users = users else {
+            print("first guard returned nil")
+            return nil
+        }
+
+        let user = users.filter { $0.username == name }
+        if user.count != 1 {
+            print(user)
+            print("filtered returned nil")
+            return nil
+        }
+        else {
+            return user[0]
+        }
     }
     
     func login(usingPassword pass: String, usingUsername username: String, completion: @escaping (Bool) -> Void) {
@@ -61,6 +99,18 @@ final class UsersManager: UsersManagerProtocol {
         
         user.isLoggedin = bl
         
-        persistent.update(with: user, using: <#T##NSPredicate?#>, completion: completion)
+        //persistent.update(with: user, using: <#T##NSPredicate?#>, completion: completion)
+    }
+    
+    func logInUser(inputUsername username: String, inputPassword pass: String, completion: @escaping () -> Void) {
+        let user = users!.filter { $0.username == username && $0.password == pass }
+        if user.count != 1 {
+            print("User does not exist")
+        }
+        else {
+            let user = getUser(byUsername: username)
+            user!.isLoggedin = true
+            completion()
+        }
     }
 }
