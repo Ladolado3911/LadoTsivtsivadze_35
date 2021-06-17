@@ -19,11 +19,12 @@ final class LoginViewModel: LoginViewModelProtocol {
     
     private var usersManager: UsersManagerProtocol!
     
-    func login(username name: String, password pass: String) {
-        // create code here
-    }
-    
     init(with object: UsersManagerProtocol) {
         usersManager = object
+    }
+    
+    func login(username name: String, password pass: String) {
+        // create code here
+        
     }
 }
