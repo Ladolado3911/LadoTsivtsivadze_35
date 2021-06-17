@@ -10,5 +10,20 @@ import CoreData
 import UIKit
 
 protocol LoginViewModelProtocol: AnyObject {
-    func login()
+    func login(username name: String, password pass: String)
+    
+    init(with object: UsersManagerProtocol)
+}
+
+final class LoginViewModel: LoginViewModelProtocol {
+    
+    private var usersManager: UsersManagerProtocol!
+    
+    func login(username name: String, password pass: String) {
+        // create code here
+    }
+    
+    init(with object: UsersManagerProtocol) {
+        usersManager = object
+    }
 }
