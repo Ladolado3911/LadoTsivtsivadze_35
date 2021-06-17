@@ -12,7 +12,7 @@ import CoreData
 protocol PersistentManagerProtocol: BasePersistentProtocol {
     func create<T: NSManagedObject>(with object: T, completion: @escaping ((Bool) -> Void))
     func read<T: NSManagedObject>(with object: T, using predicate: NSPredicate?, completion: @escaping ((Bool) -> Void))
-    func update<T>(with object: T, using predicate: NSPredicate?, completion: @escaping (Bool) -> Void) where T: NSManagedObject
+    func update<T>(with object: T, using predicate: NSPredicate?, bool bl: Bool, completion: @escaping (Bool) -> Void) where T: NSManagedObject
     func delete()
 }
 
@@ -42,7 +42,7 @@ final class PersistantManager: PersistentManagerProtocol {
         }
     }
     
-    func update<T>(with object: T, using predicate: NSPredicate?, completion: @escaping (Bool) -> Void) where T: NSManagedObject {
+    func update<T>(with object: T, using predicate: NSPredicate?, bool bl: Bool, completion: @escaping (Bool) -> Void) where T: NSManagedObject {
         guard let context = context else { return }
         
         do {
@@ -56,7 +56,9 @@ final class PersistantManager: PersistentManagerProtocol {
                 }
                 else {
                     let user = newResult[0]
-                    
+                    user.isLoggedin = bl
+                    try context.save()
+                    completion(true)
                 }
             }
         }
