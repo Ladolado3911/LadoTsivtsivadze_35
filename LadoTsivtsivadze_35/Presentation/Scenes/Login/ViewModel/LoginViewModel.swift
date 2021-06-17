@@ -29,6 +29,10 @@ final class LoginViewModel: LoginViewModelProtocol {
                            usingUsername: name) { (success) in
             if success {
                 print("can log in")
+                self.usersManager.login(usingPassword: pass,
+                                        usingUsername: name) { (success) in
+                    // change controller
+                }
             }
             else {
                 print("can not log in")

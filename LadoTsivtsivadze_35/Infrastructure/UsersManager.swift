@@ -96,6 +96,9 @@ final class UsersManager: UsersManagerProtocol {
         let user = User(context: context)
         //let predicate = NSPredicate(format: "%K = %@", "password", pass)
         let testPredicate = NSPredicate(format: "username == '\(username)' && password == '\(pass)'")
+        logInUser(inputUsername: username, inputPassword: pass) {
+            
+        }
         persistent.read(with: user, using: testPredicate, completion: completion)
     }
     
