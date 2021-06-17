@@ -22,6 +22,8 @@ class ChangerController: UIViewController {
     var postsManager: PostsManager?
     var usersManager: UsersManager?
     
+    var tempImgData: Data?
+    
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var contentTextView: UITextView!
     
@@ -70,7 +72,16 @@ class ChangerController: UIViewController {
     }
     
     @IBAction func onUploadPost(_ sender: UIButton) {
+        guard let userManager = usersManager else { return }
+        guard let postManager = postsManager else { return }
+        guard let tempImgData = tempImgData else { return }
+        let loggedinUser = userManager.loggedInUser
         
+        self.newPost = postManager.newPost(title: self.titleTextView.text,
+                                       content: self.contentTextView.text,
+                                       image: tempImgData)
+        
+        loggedinUser?.addToPosts(self.newPost!)
     }
 }
 
@@ -84,17 +95,8 @@ extension ChangerController: UIImagePickerControllerDelegate {
                 self.dismiss(animated: true) {
                     //self.img.image = image
                     guard let image = image else { return }
-                    guard let postManager = self.postsManager else { return }
-                    guard let userManager = self.usersManager else { return }
-                    //let loggedinUser = users
                     let imgData = image.pngData()
-                    
-                    self.newPost = postManager.newPost(title: self.titleTextView.text,
-                                                   content: self.contentTextView.text,
-                                                   image: imgData!)
-                    
-                    
-                    
+                    self.tempImgData = imgData
                 }
             }
         }
