@@ -25,7 +25,14 @@ final class LoginViewModel: LoginViewModelProtocol {
     
     func login(username name: String, password pass: String) {
         // create code here
-        //usersManager.login(usingPassword: <#T##String#>, completion: <#T##(Bool) -> Void#>)
-        
+        usersManager.login(usingPassword: pass,
+                           usingUsername: name) { (success) in
+            if success {
+                print("can log in")
+            }
+            else {
+                print("can not log in")
+            }
+        }
     }
 }
