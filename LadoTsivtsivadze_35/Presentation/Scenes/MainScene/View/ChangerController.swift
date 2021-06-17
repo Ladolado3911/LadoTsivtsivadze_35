@@ -68,24 +68,33 @@ class ChangerController: UIViewController {
     }
     
     @IBAction func onChooseImage(_ sender: UIButton) {
-        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        //vc.allowsEditing = true
+        self.present(vc, animated: true)
     }
     
     @IBAction func onUploadPost(_ sender: UIButton) {
         guard let userManager = usersManager else { return }
         guard let postManager = postsManager else { return }
         guard let tempImgData = tempImgData else { return }
+        
+        if titleTextView.text == "" || contentTextView.text == "" {
+            return
+        }
+        
         let loggedinUser = userManager.loggedInUser
         
-        self.newPost = postManager.newPost(title: self.titleTextView.text,
+        newPost = postManager.newPost(title: self.titleTextView.text,
                                        content: self.contentTextView.text,
                                        image: tempImgData)
         
-        loggedinUser?.addToPosts(self.newPost!)
+        loggedinUser?.addToPosts(newPost!)
     }
 }
 
-extension ChangerController: UIImagePickerControllerDelegate {
+extension ChangerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         DispatchQueue.global(qos: .utility).async {
