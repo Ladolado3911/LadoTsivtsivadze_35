@@ -18,6 +18,12 @@
 		2451EF02267B37610049636C /* RegisterController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2451EF01267B37610049636C /* RegisterController.storyboard */; };
 		2451EF04267B37740049636C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2451EF03267B37740049636C /* LoginController.swift */; };
 		2451EF06267B37810049636C /* LoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2451EF05267B37800049636C /* LoginController.storyboard */; };
+		3F630CF1267B52580081CFAD /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CED267B52580081CFAD /* IDs.swift */; };
+		3F630CF2267B52580081CFAD /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CEE267B52580081CFAD /* TypeAliases.swift */; };
+		3F630CF3267B52580081CFAD /* ControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CEF267B52580081CFAD /* ControllerHelpers.swift */; };
+		3F630CFA267B54840081CFAD /* BasePersistentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CF9267B54840081CFAD /* BasePersistentProtocol.swift */; };
+		3F630CFD267B54D30081CFAD /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CFC267B54D30081CFAD /* PersistentManager.swift */; };
+		3F630D03267B57440081CFAD /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630D02267B57440081CFAD /* UsersManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		2451EF01267B37610049636C /* RegisterController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterController.storyboard; sourceTree = "<group>"; };
 		2451EF03267B37740049636C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2451EF05267B37800049636C /* LoginController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginController.storyboard; sourceTree = "<group>"; };
+		3F630CED267B52580081CFAD /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
+		3F630CEE267B52580081CFAD /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		3F630CEF267B52580081CFAD /* ControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerHelpers.swift; sourceTree = "<group>"; };
+		3F630CF9267B54840081CFAD /* BasePersistentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePersistentProtocol.swift; sourceTree = "<group>"; };
+		3F630CFC267B54D30081CFAD /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
+		3F630D02267B57440081CFAD /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,8 @@
 		2451EED4267B33250049636C /* LadoTsivtsivadze_35 */ = {
 			isa = PBXGroup;
 			children = (
+				2451EEE6267B33260049636C /* Info.plist */,
+				2451EEFA267B35B50049636C /* Supporting Files */,
 				2451EEF4267B34AB0049636C /* Infrastructure */,
 				2451EEF3267B34950049636C /* Resources */,
 				2451EEED267B33430049636C /* Presentation */,
@@ -86,7 +100,6 @@
 		2451EEED267B33430049636C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				2451EEFA267B35B50049636C /* Supporting Files */,
 				2451EEEE267B33490049636C /* Scenes */,
 			);
 			path = Presentation;
@@ -148,6 +161,9 @@
 		2451EEF5267B34B60049636C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				3F630CF9267B54840081CFAD /* BasePersistentProtocol.swift */,
+				3F630CFC267B54D30081CFAD /* PersistentManager.swift */,
+				3F630D02267B57440081CFAD /* UsersManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -188,8 +204,10 @@
 		2451EEFA267B35B50049636C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F630CEF267B52580081CFAD /* ControllerHelpers.swift */,
+				3F630CED267B52580081CFAD /* IDs.swift */,
+				3F630CEE267B52580081CFAD /* TypeAliases.swift */,
 				2451EEE3267B33260049636C /* LaunchScreen.storyboard */,
-				2451EEE6267B33260049636C /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -298,10 +316,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F630CFD267B54D30081CFAD /* PersistentManager.swift in Sources */,
+				3F630CF2267B52580081CFAD /* TypeAliases.swift in Sources */,
+				3F630CF1267B52580081CFAD /* IDs.swift in Sources */,
 				2451EF00267B37400049636C /* RegisterController.swift in Sources */,
 				2451EF04267B37740049636C /* LoginController.swift in Sources */,
 				2451EEDA267B33250049636C /* MainController.swift in Sources */,
+				3F630D03267B57440081CFAD /* UsersManager.swift in Sources */,
+				3F630CF3267B52580081CFAD /* ControllerHelpers.swift in Sources */,
 				2451EED6267B33250049636C /* AppDelegate.swift in Sources */,
+				3F630CFA267B54840081CFAD /* BasePersistentProtocol.swift in Sources */,
 				2451EEE0267B33250049636C /* LadoTsivtsivadze_35.xcdatamodeld in Sources */,
 				2451EED8267B33250049636C /* SceneDelegate.swift in Sources */,
 			);
@@ -380,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -435,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -451,13 +475,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C7J4PSQLX;
+				DEVELOPMENT_TEAM = M5DM73ULV2;
 				INFOPLIST_FILE = LadoTsivtsivadze_35/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ladotsivtsivadze.LadoTsivtsivadze-35";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ladotsivtsivadze.LadoTsivtsivadze-355";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,13 +494,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C7J4PSQLX;
+				DEVELOPMENT_TEAM = M5DM73ULV2;
 				INFOPLIST_FILE = LadoTsivtsivadze_35/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ladotsivtsivadze.LadoTsivtsivadze-35";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ladotsivtsivadze.LadoTsivtsivadze-355";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
