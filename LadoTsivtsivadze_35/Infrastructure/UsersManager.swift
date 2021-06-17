@@ -34,7 +34,15 @@ final class UsersManager: UsersManagerProtocol {
     }
     
     var loggedInUser: User? {
-        return nil
+        guard let userObject = userObject else { return nil }
+        guard let entities = getUsers(managedObject: userObject) else { return nil }
+        let loggedInUser = entities.filter { $0.isLoggedin }
+        if loggedInUser.count != 1 {
+            return nil
+        }
+        else {
+            return loggedInUser[0]
+        }
     }
     
     init(with persistent2: PersistentManagerProtocol) {
