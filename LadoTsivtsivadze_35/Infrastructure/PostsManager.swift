@@ -35,6 +35,21 @@ final class PostsManager: PostsManagerProtocol {
     init(with persistent2: PersistentManagerProtocol) {
         persistent = persistent2
     }
+    
+    func clearPosts() {
+        guard let context = context else { return }
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Post")
+        
+        do {
+            let entities = try context.fetch(request)
+            entities.map {
+                context.delete($0)
+            }
+        }
+        catch {
+            print(error)
+        }
+    }
 
 
     func getPosts(managedObject obj: NSManagedObject) -> [Post]? {

@@ -128,4 +128,16 @@ final class UsersManager: UsersManagerProtocol {
             completion()
         }
     }
+    
+    func logOut() {
+        guard let context = context else { return }
+        let loggedInUser2 = loggedInUser
+        loggedInUser2!.isLoggedin = false
+        do {
+            try context.save()
+        }
+        catch {
+            print(error)
+        }
+    }
 }

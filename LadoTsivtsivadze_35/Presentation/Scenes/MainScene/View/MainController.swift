@@ -49,6 +49,7 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
+        //postsManager.clearPosts()
         // Do any additional setup after loading the view.
     }
     
@@ -91,8 +92,7 @@ class MainController: UIViewController {
     }
     
     @IBAction func onLogout(_ sender: UIButton) {
-        let loggedInUser = usersManager.loggedInUser
-        loggedInUser!.isLoggedin = false
+        usersManager.logOut()
         print(usersManager.loggedInUsers!.map { $0.username })
         
         if navigationController!.viewControllers.count == 1 {
@@ -107,8 +107,11 @@ class MainController: UIViewController {
 
 extension MainController: Table {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = data {
+        if var data = data {
+            data = data.filter { $0.title != nil }
             print("unwrapped")
+            print(data.count)
+            print(data)
             return data.count
         }
         else {
