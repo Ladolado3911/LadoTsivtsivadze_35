@@ -22,7 +22,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     
     private lazy var mainController: MainController = {
         let vc = getController(storyboardID: .main, controllerID: .mainScene) as? MainController
-        vc?.modalPresentationStyle = .fullScreen
+        vc!.navigationItem.hidesBackButton = true
         return vc!
     }()
     
@@ -42,8 +42,7 @@ final class LoginViewModel: LoginViewModelProtocol {
                            usingUsername: name) { (success) in
             if success {
                 print("can log in")
-                self.rootController.present(self.mainController, animated: true, completion: nil)
-                
+                pushController(from: self.rootController, to: self.mainController, method: .withBackItem)
             }
             else {
                 print("can not log in")

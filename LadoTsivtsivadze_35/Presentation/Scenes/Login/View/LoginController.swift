@@ -13,7 +13,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     private var persistantManager: PersistentManagerProtocol!
-    private var usersManager: UsersManagerProtocol!
+    private var usersManager: UsersManager!
     private var viewModel: LoginViewModel!
     
     override func viewDidLoad() {
@@ -41,7 +41,11 @@ class LoginController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: UIButton) {
-        
+        if usernameField.text == "" || passwordField.text == "" {
+            return
+        }
+        usersManager.users!.map { print($0.username) }
+        viewModel.login(username: usernameField.text!, password: passwordField.text!)
     }
 
     @IBAction func onRegister(_ sender: Any) {
