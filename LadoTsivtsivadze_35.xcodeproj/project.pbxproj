@@ -44,7 +44,7 @@
 		2451EF01267B37610049636C /* RegisterController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterController.storyboard; sourceTree = "<group>"; };
 		2451EF03267B37740049636C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2451EF05267B37800049636C /* LoginController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginController.storyboard; sourceTree = "<group>"; };
-		3F5DBB50267B876F008811FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = LadoTsivtsivadze_35/Infrastructure/MainViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3F5DBB50267B876F008811FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = LadoTsivtsivadze_35/Presentation/Scenes/MainScene/ViewModel/MainViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3F630CED267B52580081CFAD /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
 		3F630CEE267B52580081CFAD /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		3F630CEF267B52580081CFAD /* ControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerHelpers.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		2451EEEF267B334F0049636C /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
-				2451EEF2267B34710049636C /* ViewModel */,
+				3F5DBB53267B9ED9008811FB /* ViewModel */,
 				2451EEF1267B346C0049636C /* View */,
 			);
 			path = MainScene;
@@ -139,14 +139,6 @@
 				2451EEDB267B33250049636C /* Main.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		2451EEF2267B34710049636C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3F5DBB50267B876F008811FB /* MainViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2451EEF3267B34950049636C /* Resources */ = {
@@ -254,6 +246,14 @@
 				2451EF01267B37610049636C /* RegisterController.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3F5DBB53267B9ED9008811FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F5DBB50267B876F008811FB /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
