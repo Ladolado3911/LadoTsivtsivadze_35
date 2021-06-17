@@ -12,7 +12,7 @@ import CoreData
 protocol PersistentManagerProtocol: BasePersistentProtocol {
     func create<T: NSManagedObject>(with object: T, completion: @escaping ((Bool) -> Void))
     func read<T: NSManagedObject>(with object: T, using predicate: NSPredicate?, completion: @escaping ((Bool) -> Void))
-    func update()
+    func update<T>(with object: T, using predicate: NSPredicate?, completion: @escaping (Bool) -> Void) where T: NSManagedObject
     func delete()
 }
 
@@ -42,8 +42,27 @@ final class PersistantManager: PersistentManagerProtocol {
         }
     }
     
-    func update() {
+    func update<T>(with object: T, using predicate: NSPredicate?, completion: @escaping (Bool) -> Void) where T: NSManagedObject {
+        guard let context = context else { return }
         
+        do {
+            let request = NSFetchRequest<NSManagedObject>(entityName: "User")
+            request.predicate = predicate
+            let result = try context.fetch(request)
+            
+            if let newResult = result as? [User] {
+                if newResult.count != 1 {
+                    print("more than 1 users")
+                }
+                else {
+                    let user = newResult[0]
+                    
+                }
+            }
+        }
+        catch {
+            print(error)
+        }
     }
     
     func delete() {

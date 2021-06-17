@@ -20,6 +20,17 @@ final class UsersManager: UsersManagerProtocol {
     
     private var persistent: PersistentManagerProtocol!
     
+    var userObject: NSManagedObject? {
+        guard let context = context else { return nil }
+        guard let description = NSEntityDescription.entity(forEntityName: "User", in: context) else { return nil }
+        let obj = NSManagedObject(entity: description, insertInto: context)
+        return obj
+    }
+    
+    var loggedInUser: User? {
+        return nil
+    }
+    
     init(with persistent2: PersistentManagerProtocol) {
         persistent = persistent2
     }
