@@ -16,8 +16,9 @@ class MainController: UIViewController {
     
     private var data: [Post]? {
         guard let user = usersManager.loggedInUser else { return nil }
-        let posts = postsManager.getUserPosts(user: user)
-        return posts
+        let userPosts = postsManager.getUserPosts(user: user)
+        let everyPosts = postsManager.posts
+        return everyPosts
     }
     
     private lazy var changeController: ChangerController = {
@@ -67,6 +68,8 @@ class MainController: UIViewController {
     @IBAction func onNewPost(_ sender: Any) {
         let vc = changeController
         vc.editingMode = .newPost
+        vc.postsManager = postsManager
+        vc.usersManager = usersManager
         pushController(from: self, to: vc, method: .withBackItem)
     }
     
