@@ -27,8 +27,8 @@ final class PostsManager: PostsManagerProtocol {
     }
     
     var posts: [Post]? {
-        guard let userObject = postObject else { return nil }
-        guard let entities = getPosts(managedObject: userObject) else { return nil }
+        guard let postObject = postObject else { return nil }
+        guard let entities = getPosts(managedObject: postObject) else { return nil }
         return entities
     }
     

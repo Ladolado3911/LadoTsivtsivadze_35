@@ -14,12 +14,12 @@ class MainController: UIViewController {
     private var postsManager: PostsManager!
     private var viewModel: MainViewModel!
     
-    private var data: [Post]? {
+    var data: [Post]? {
         print("in data")
         //guard let user = usersManager.loggedInUser else { return nil }
         //let userPosts = postsManager.getUserPosts(user: user)
         let everyPosts = postsManager.posts
-        print(everyPosts)
+        //print(everyPosts)
         return everyPosts
     }
     
@@ -48,7 +48,13 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configTableView()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tblView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -101,13 +107,21 @@ class MainController: UIViewController {
 
 extension MainController: Table {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let data = data else { return 0 }
-        print("data is unwrapped")
-        return data.count
+        if let data = data {
+            print("unwrapped")
+            return data.count
+        }
+        else {
+            print("can not unwrap")
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = data else { return UITableViewCell() }
+        guard let data = data else {
+            print("did not unwrap")
+            return PostCell()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell
         
         let post = data[indexPath.row]
@@ -115,12 +129,12 @@ extension MainController: Table {
         cell!.content2 = post.content
         cell!.picData = post.picture
 
-        print("trying tp return cell")
+        //print("trying tp return cell")
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        300
+        200
     }
 }
 
