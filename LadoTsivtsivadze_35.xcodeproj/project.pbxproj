@@ -58,16 +58,128 @@
 		2451EED4267B33250049636C /* LadoTsivtsivadze_35 */ = {
 			isa = PBXGroup;
 			children = (
-				2451EED5267B33250049636C /* AppDelegate.swift */,
-				2451EED7267B33250049636C /* SceneDelegate.swift */,
-				2451EED9267B33250049636C /* ViewController.swift */,
-				2451EEDB267B33250049636C /* Main.storyboard */,
-				2451EEE1267B33260049636C /* Assets.xcassets */,
-				2451EEE3267B33260049636C /* LaunchScreen.storyboard */,
-				2451EEE6267B33260049636C /* Info.plist */,
-				2451EEDE267B33250049636C /* LadoTsivtsivadze_35.xcdatamodeld */,
+				2451EEF4267B34AB0049636C /* Infrastructure */,
+				2451EEF3267B34950049636C /* Resources */,
+				2451EEED267B33430049636C /* Presentation */,
+				2451EEEC267B333A0049636C /* App */,
 			);
 			path = LadoTsivtsivadze_35;
+			sourceTree = "<group>";
+		};
+		2451EEEC267B333A0049636C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2451EED5267B33250049636C /* AppDelegate.swift */,
+				2451EED7267B33250049636C /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2451EEED267B33430049636C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEFA267B35B50049636C /* Supporting Files */,
+				2451EEEE267B33490049636C /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2451EEEE267B33490049636C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEF9267B34F20049636C /* Register */,
+				2451EEF8267B34DA0049636C /* Login */,
+				2451EEEF267B334F0049636C /* MainScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2451EEEF267B334F0049636C /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEF2267B34710049636C /* ViewModel */,
+				2451EEF1267B346C0049636C /* View */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		2451EEF1267B346C0049636C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2451EED9267B33250049636C /* ViewController.swift */,
+				2451EEDB267B33250049636C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2451EEF2267B34710049636C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2451EEF3267B34950049636C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEE1267B33260049636C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2451EEF4267B34AB0049636C /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEF7267B34C50049636C /* Extensions */,
+				2451EEF6267B34BC0049636C /* Persistent */,
+				2451EEF5267B34B60049636C /* Managers */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		2451EEF5267B34B60049636C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		2451EEF6267B34BC0049636C /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEDE267B33250049636C /* LadoTsivtsivadze_35.xcdatamodeld */,
+			);
+			name = Persistent;
+			sourceTree = "<group>";
+		};
+		2451EEF7267B34C50049636C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		2451EEF8267B34DA0049636C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2451EEF9267B34F20049636C /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		2451EEFA267B35B50049636C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2451EEE3267B33260049636C /* LaunchScreen.storyboard */,
+				2451EEE6267B33260049636C /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
