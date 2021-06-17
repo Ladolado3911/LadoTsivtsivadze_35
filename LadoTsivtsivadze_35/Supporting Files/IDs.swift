@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 
 enum ControllerID: String {
-    case notesList = "NotesListController"
-    case notesEdit = "NotesEditController"
-    case logIn = "LogInController"
-    case register = "RegisterController"
-    case loggedIn = "LoggedInController"
+    case mainScene = "MainController"
+    case LoginScene = "LoginController"
+    case RegisterScene = "RegisterController"
 }
 
 enum StoryboardID: String {
     case main = "Main"
+    case login = "LoginController"
+    case register = "RegisterController"
 }
 
-enum TabbarControllerID: String {
-    case tabBar = "TabBarController"
-}
+//enum TabbarControllerID: String {
+//    case tabBar = "TabBarController"
+//}
