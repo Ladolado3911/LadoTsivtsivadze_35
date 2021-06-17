@@ -24,6 +24,7 @@
 		3F630CFA267B54840081CFAD /* BasePersistentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CF9267B54840081CFAD /* BasePersistentProtocol.swift */; };
 		3F630CFD267B54D30081CFAD /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CFC267B54D30081CFAD /* PersistentManager.swift */; };
 		3F630D03267B57440081CFAD /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630D02267B57440081CFAD /* UsersManager.swift */; };
+		3F842514267B5A2400466646 /* PostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F842513267B5A2400466646 /* PostsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		3F630CF9267B54840081CFAD /* BasePersistentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePersistentProtocol.swift; sourceTree = "<group>"; };
 		3F630CFC267B54D30081CFAD /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		3F630D02267B57440081CFAD /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		3F842513267B5A2400466646 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				3F630CF9267B54840081CFAD /* BasePersistentProtocol.swift */,
 				3F630CFC267B54D30081CFAD /* PersistentManager.swift */,
 				3F630D02267B57440081CFAD /* UsersManager.swift */,
+				3F842513267B5A2400466646 /* PostsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				3F630D03267B57440081CFAD /* UsersManager.swift in Sources */,
 				3F630CF3267B52580081CFAD /* ControllerHelpers.swift in Sources */,
 				2451EED6267B33250049636C /* AppDelegate.swift in Sources */,
+				3F842514267B5A2400466646 /* PostsManager.swift in Sources */,
 				3F630CFA267B54840081CFAD /* BasePersistentProtocol.swift in Sources */,
 				2451EEE0267B33250049636C /* LadoTsivtsivadze_35.xcdatamodeld in Sources */,
 				2451EED8267B33250049636C /* SceneDelegate.swift in Sources */,

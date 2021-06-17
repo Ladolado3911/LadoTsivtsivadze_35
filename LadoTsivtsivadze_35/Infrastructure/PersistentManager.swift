@@ -29,7 +29,17 @@ final class PersistantManager: PersistentManagerProtocol {
     }
     
     func read<T>(with object: T, using predicate: NSPredicate?, completion: @escaping ((Bool) -> Void)) where T : NSManagedObject {
+        guard let context = context else { return }
         
+        do {
+            let request = NSFetchRequest<NSManagedObject>(entityName: "User")
+            request.predicate = predicate
+            let result = try context.fetch(request)
+            completion(!result.isEmpty)
+        }
+        catch {
+            print(error)
+        }
     }
     
     func update() {
