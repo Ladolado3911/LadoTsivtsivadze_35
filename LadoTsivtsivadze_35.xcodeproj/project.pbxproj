@@ -50,8 +50,8 @@
 		3F630CFC267B54D30081CFAD /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		3F630D02267B57440081CFAD /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		3F842513267B5A2400466646 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
-		3FC5BE7B267B660600F18D35 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = LadoTsivtsivadze_35/Infrastructure/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
-		3FC5BE7E267B665600F18D35 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterViewModel.swift; path = LadoTsivtsivadze_35/Infrastructure/RegisterViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3FC5BE7B267B660600F18D35 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = LadoTsivtsivadze_35/Presentation/Scenes/Login/ViewModel/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3FC5BE7E267B665600F18D35 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterViewModel.swift; path = LadoTsivtsivadze_35/Presentation/Scenes/Register/ViewModel/RegisterViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +222,7 @@
 		2451EEFB267B37130049636C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3FC5BE7E267B665600F18D35 /* RegisterViewModel.swift */,
+				3FC5BE7B267B660600F18D35 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 		2451EEFD267B371D0049636C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3FC5BE7B267B660600F18D35 /* LoginViewModel.swift */,
+				3FC5BE7E267B665600F18D35 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

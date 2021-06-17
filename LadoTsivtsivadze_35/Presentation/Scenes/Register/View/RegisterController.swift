@@ -21,6 +21,13 @@ class RegisterController: UIViewController {
         configViewModel()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        usernameField.text = ""
+        passwordField.text = ""
+    }
+    
     func configViewModel() {
         persistantManager = PersistantManager()
         usersManager = UsersManager(with: persistantManager)
