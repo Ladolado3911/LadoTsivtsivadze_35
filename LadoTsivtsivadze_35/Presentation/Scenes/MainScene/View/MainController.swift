@@ -11,7 +11,14 @@ class MainController: UIViewController {
 
     private var persistantManager: PersistentManagerProtocol!
     private var usersManager: UsersManager!
+    private var postsManager: PostsManager!
     private var viewModel: MainViewModel!
+    
+    private var data: [Post]? {
+        guard let user = usersManager.loggedInUser else { return nil }
+        let posts = postsManager.getUserPosts(user: user)
+        return posts
+    }
     
     @IBOutlet weak var tblView: UITableView!
     
@@ -38,6 +45,7 @@ class MainController: UIViewController {
     
     func configViewModel() {
         persistantManager = PersistantManager()
+        postsManager = PostsManager(with: persistantManager)
         usersManager = UsersManager(with: persistantManager)
         viewModel = MainViewModel(with: usersManager, rootController: self)
     }
@@ -56,7 +64,8 @@ class MainController: UIViewController {
 
 extension MainController: Table {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        guard let data = data else { return 0 }
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
