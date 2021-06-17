@@ -34,6 +34,10 @@ final class UsersManager: UsersManagerProtocol {
     }
     
     func login(usingPassword pass: String, completion: @escaping (Bool) -> Void) {
+        guard let context = context else { return }
         
+        let user = User(context: context)
+        let predicate = NSPredicate(format: "%K = %@", "password", pass)
+        persistent.read(with: user, using: predicate, completion: completion)
     }
 }
