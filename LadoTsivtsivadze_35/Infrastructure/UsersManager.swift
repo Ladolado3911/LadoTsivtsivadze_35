@@ -52,4 +52,15 @@ final class UsersManager: UsersManagerProtocol {
         let testPredicate = NSPredicate(format: "username == '\(username)' && password == '\(pass)'")
         persistent.read(with: user, using: testPredicate, completion: completion)
     }
+    
+    func makeUserLoggedIn(bool bl: Bool, completion: @escaping (Bool) -> Void) {
+        guard let context = context else { return }
+        
+        let user = User(context: context)
+        let predicate = NSPredicate(format: "")
+        
+        user.isLoggedin = bl
+        
+        persistent.update(with: user, using: <#T##NSPredicate?#>, completion: completion)
+    }
 }
