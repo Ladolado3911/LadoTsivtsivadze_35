@@ -26,6 +26,11 @@ final class LoginViewModel: LoginViewModelProtocol {
         return vc!
     }()
     
+    private lazy var registerController: RegisterController = {
+        let vc = getController(storyboardID: .register, controllerID: .RegisterScene) as? RegisterController
+        return vc!
+    }()
+    
     init(with object: UsersManagerProtocol, rootController controller1: LoginController) {
         usersManager = object
         rootController = controller1
@@ -44,5 +49,9 @@ final class LoginViewModel: LoginViewModelProtocol {
                 print("can not log in")
             }
         }
+    }
+    
+    func goToRegister() {
+        pushController(from: rootController, to: registerController, method: .withBackItem)
     }
 }

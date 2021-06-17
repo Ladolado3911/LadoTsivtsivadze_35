@@ -14,12 +14,17 @@ class LoginController: UIViewController {
     
     private var persistantManager: PersistentManagerProtocol!
     private var usersManager: UsersManagerProtocol!
-    private var viewModel: LoginViewModelProtocol!
+    private var viewModel: LoginViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewModel()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController!.title = "Log in"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -37,5 +42,9 @@ class LoginController: UIViewController {
     
     @IBAction func onLogin(_ sender: UIButton) {
         
+    }
+
+    @IBAction func onRegister(_ sender: Any) {
+        viewModel.goToRegister()
     }
 }

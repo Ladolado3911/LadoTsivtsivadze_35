@@ -43,7 +43,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <action selector="onLogin:" destination="oXA-L3-Xze" eventType="touchUpInside" id="17K-XB-X51"/>
                                     <action selector="onRegister:" destination="oXA-L3-Xze" eventType="touchUpInside" id="oSB-X5-9X9"/>
                                 </connections>
                             </button>

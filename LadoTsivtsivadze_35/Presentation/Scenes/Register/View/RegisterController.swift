@@ -21,6 +21,12 @@ class RegisterController: UIViewController {
         configViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController!.navigationBar.topItem!.title = "Register"
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -31,13 +37,14 @@ class RegisterController: UIViewController {
     func configViewModel() {
         persistantManager = PersistantManager()
         usersManager = UsersManager(with: persistantManager)
-        viewModel = RegisterViewModel(with: usersManager)
+        viewModel = RegisterViewModel(with: usersManager, rootController: self)
     }
     
     @IBAction func onRegister(_ sender: UIButton) {
         if usernameField.text == "" || passwordField.text == "" {
             return
         }
+        print("here")
         viewModel.register(username: usernameField.text!,
                            password: passwordField.text!)
     }
