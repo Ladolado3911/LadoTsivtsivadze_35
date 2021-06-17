@@ -37,9 +37,10 @@ class MainController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tblView.reloadData()
         print(usersManager.loggedInUsers!.map { $0.username })
     }
     
@@ -51,7 +52,11 @@ class MainController: UIViewController {
     }
     
     func configTableView() {
-    
+        tblView.dataSource = self
+        tblView.delegate = self
+        
+        let nib = UINib(nibName: "PostCell", bundle: nil)
+        tblView.register(nib, forCellReuseIdentifier: "PostCell")
     }
 
     @IBAction func onLogout(_ sender: UIButton) {
@@ -69,7 +74,13 @@ extension MainController: Table {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        guard let data = data else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        300
     }
 }
 

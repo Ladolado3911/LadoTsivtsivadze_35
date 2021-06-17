@@ -19,6 +19,8 @@
 		2451EF04267B37740049636C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2451EF03267B37740049636C /* LoginController.swift */; };
 		2451EF06267B37810049636C /* LoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2451EF05267B37800049636C /* LoginController.storyboard */; };
 		3F5DBB51267B876F008811FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DBB50267B876F008811FB /* MainViewModel.swift */; };
+		3F5DBB58267BA471008811FB /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DBB56267BA471008811FB /* PostCell.swift */; };
+		3F5DBB59267BA471008811FB /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5DBB57267BA471008811FB /* PostCell.xib */; };
 		3F630CF1267B52580081CFAD /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CED267B52580081CFAD /* IDs.swift */; };
 		3F630CF2267B52580081CFAD /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CEE267B52580081CFAD /* TypeAliases.swift */; };
 		3F630CF3267B52580081CFAD /* ControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CEF267B52580081CFAD /* ControllerHelpers.swift */; };
@@ -45,6 +47,8 @@
 		2451EF03267B37740049636C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2451EF05267B37800049636C /* LoginController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginController.storyboard; sourceTree = "<group>"; };
 		3F5DBB50267B876F008811FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = LadoTsivtsivadze_35/Presentation/Scenes/MainScene/ViewModel/MainViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3F5DBB56267BA471008811FB /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		3F5DBB57267BA471008811FB /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		3F630CED267B52580081CFAD /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
 		3F630CEE267B52580081CFAD /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		3F630CEF267B52580081CFAD /* ControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerHelpers.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 		3F5DBB54267B9F0B008811FB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3F5DBB56267BA471008811FB /* PostCell.swift */,
+				3F5DBB57267BA471008811FB /* PostCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2451EEE5267B33260049636C /* LaunchScreen.storyboard in Resources */,
+				3F5DBB59267BA471008811FB /* PostCell.xib in Resources */,
 				2451EF02267B37610049636C /* RegisterController.storyboard in Resources */,
 				2451EF06267B37810049636C /* LoginController.storyboard in Resources */,
 				2451EEE2267B33260049636C /* Assets.xcassets in Resources */,
@@ -336,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5DBB58267BA471008811FB /* PostCell.swift in Sources */,
 				3F630CFD267B54D30081CFAD /* PersistentManager.swift in Sources */,
 				3FC5BE7F267B665600F18D35 /* RegisterViewModel.swift in Sources */,
 				3F630CF2267B52580081CFAD /* TypeAliases.swift in Sources */,
