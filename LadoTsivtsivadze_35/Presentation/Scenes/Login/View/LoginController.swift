@@ -16,6 +16,15 @@ class LoginController: UIViewController {
     private var usersManager: UsersManager!
     private var viewModel: LoginViewModel!
     
+    override func loadView() {
+        super.loadView()
+        
+        if navigationController!.viewControllers.count == 2 {
+            print("count is 2")
+            navigationItem.hidesBackButton = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewModel()

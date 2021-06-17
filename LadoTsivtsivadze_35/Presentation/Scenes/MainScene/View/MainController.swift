@@ -15,16 +15,21 @@ class MainController: UIViewController {
     private var viewModel: MainViewModel!
     
     private var data: [Post]? {
-        guard let user = usersManager.loggedInUser else { return nil }
-        let userPosts = postsManager.getUserPosts(user: user)
+        print("in data")
+        //guard let user = usersManager.loggedInUser else { return nil }
+        //let userPosts = postsManager.getUserPosts(user: user)
         let everyPosts = postsManager.posts
-        print("this")
         print(everyPosts)
         return everyPosts
     }
     
     private lazy var changeController: ChangerController = {
         let vc = getController(storyboardID: .main, controllerID: .Changer) as? ChangerController
+        return vc!
+    }()
+    
+    private lazy var loginController: LoginController = {
+        let vc = getController(storyboardID: .login, controllerID: .LoginScene) as? LoginController
         return vc!
     }()
     
@@ -83,20 +88,34 @@ class MainController: UIViewController {
         let loggedInUser = usersManager.loggedInUser
         loggedInUser!.isLoggedin = false
         print(usersManager.loggedInUsers!.map { $0.username })
-        popController(from: self, method: .withBackItem)
+        
+        if navigationController!.viewControllers.count == 1 {
+            let vc = loginController
+            pushController(from: self, to: loginController, method: .withBackItem)
+        }
+        else {
+            popController(from: self, method: .withBackItem)
+        }
     }
 }
 
 extension MainController: Table {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let data = data else { return 0 }
+        print("data is unwrapped")
         return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = data else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell
+        
+        let post = data[indexPath.row]
+        cell!.title2 = post.title
+        cell!.content2 = post.content
+        cell!.picData = post.picture
 
+        print("trying tp return cell")
         return cell!
     }
     
