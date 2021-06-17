@@ -12,6 +12,8 @@ enum ControllerID: String {
     case mainScene = "MainController"
     case LoginScene = "LoginController"
     case RegisterScene = "RegisterController"
+    // main
+    case Changer = "ChangerController"
 }
 
 enum StoryboardID: String {

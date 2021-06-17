@@ -20,6 +20,11 @@ class MainController: UIViewController {
         return posts
     }
     
+    private lazy var changeController: ChangerController = {
+        let vc = getController(storyboardID: .main, controllerID: .Changer) as? ChangerController
+        return vc!
+    }()
+    
     @IBOutlet weak var tblView: UITableView!
     
     override func loadView() {
@@ -58,7 +63,13 @@ class MainController: UIViewController {
         let nib = UINib(nibName: "PostCell", bundle: nil)
         tblView.register(nib, forCellReuseIdentifier: "PostCell")
     }
-
+    
+    @IBAction func onNewPost(_ sender: Any) {
+        let vc = changeController
+        vc.editingMode = .newPost
+        pushController(from: self, to: vc, method: .withBackItem)
+    }
+    
     @IBAction func onLogout(_ sender: UIButton) {
         let loggedInUser = usersManager.loggedInUser
         loggedInUser!.isLoggedin = false

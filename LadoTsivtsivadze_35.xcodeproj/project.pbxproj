@@ -21,6 +21,7 @@
 		3F5DBB51267B876F008811FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DBB50267B876F008811FB /* MainViewModel.swift */; };
 		3F5DBB58267BA471008811FB /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DBB56267BA471008811FB /* PostCell.swift */; };
 		3F5DBB59267BA471008811FB /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5DBB57267BA471008811FB /* PostCell.xib */; };
+		3F5DBB5C267BA763008811FB /* ChangerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DBB5B267BA763008811FB /* ChangerController.swift */; };
 		3F630CF1267B52580081CFAD /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CED267B52580081CFAD /* IDs.swift */; };
 		3F630CF2267B52580081CFAD /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CEE267B52580081CFAD /* TypeAliases.swift */; };
 		3F630CF3267B52580081CFAD /* ControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F630CEF267B52580081CFAD /* ControllerHelpers.swift */; };
@@ -49,6 +50,7 @@
 		3F5DBB50267B876F008811FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = LadoTsivtsivadze_35/Presentation/Scenes/MainScene/ViewModel/MainViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3F5DBB56267BA471008811FB /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		3F5DBB57267BA471008811FB /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		3F5DBB5B267BA763008811FB /* ChangerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangerController.swift; sourceTree = "<group>"; };
 		3F630CED267B52580081CFAD /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
 		3F630CEE267B52580081CFAD /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		3F630CEF267B52580081CFAD /* ControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerHelpers.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				3F5DBB54267B9F0B008811FB /* Cells */,
 				2451EED9267B33250049636C /* MainController.swift */,
 				2451EEDB267B33250049636C /* Main.storyboard */,
+				3F5DBB5B267BA763008811FB /* ChangerController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			files = (
 				3F5DBB58267BA471008811FB /* PostCell.swift in Sources */,
 				3F630CFD267B54D30081CFAD /* PersistentManager.swift in Sources */,
+				3F5DBB5C267BA763008811FB /* ChangerController.swift in Sources */,
 				3FC5BE7F267B665600F18D35 /* RegisterViewModel.swift in Sources */,
 				3F630CF2267B52580081CFAD /* TypeAliases.swift in Sources */,
 				3F630CF1267B52580081CFAD /* IDs.swift in Sources */,
