@@ -21,6 +21,7 @@ func getController(storyboardID id: StoryboardID, controllerID identifier: Contr
 
 func pushController(from controller1: UIViewController, to controller2: UIViewController, method mtd: Method) {
     controller1.navigationController?.navigationBar.isHidden = mtd == .withoutBackItem ? true : false
+    //controller1.navigationController?.navigationBar.items = nil
     controller1.navigationController?.pushViewController(controller2, animated: true)
 }
 

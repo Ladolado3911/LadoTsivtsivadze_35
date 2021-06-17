@@ -32,7 +32,7 @@ class LoginController: UIViewController {
     func configViewModel() {
         persistantManager = PersistantManager()
         usersManager = UsersManager(with: persistantManager)
-        viewModel = LoginViewModel(with: usersManager)
+        viewModel = LoginViewModel(with: usersManager, rootController: self)
     }
     
     @IBAction func onLogin(_ sender: UIButton) {

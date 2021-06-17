@@ -12,15 +12,23 @@ import UIKit
 protocol LoginViewModelProtocol: AnyObject {
     func login(username name: String, password pass: String)
     
-    init(with object: UsersManagerProtocol)
+    init(with object: UsersManagerProtocol, rootController controller1: LoginController)
 }
 
 final class LoginViewModel: LoginViewModelProtocol {
     
     private var usersManager: UsersManagerProtocol!
+    private var rootController: LoginController!
     
-    init(with object: UsersManagerProtocol) {
+    private lazy var mainController: MainController = {
+        let vc = getController(storyboardID: .main, controllerID: .mainScene) as? MainController
+        vc?.modalPresentationStyle = .fullScreen
+        return vc!
+    }()
+    
+    init(with object: UsersManagerProtocol, rootController controller1: LoginController) {
         usersManager = object
+        rootController = controller1
     }
     
     func login(username name: String, password pass: String) {
@@ -29,10 +37,8 @@ final class LoginViewModel: LoginViewModelProtocol {
                            usingUsername: name) { (success) in
             if success {
                 print("can log in")
-                self.usersManager.login(usingPassword: pass,
-                                        usingUsername: name) { (success) in
-                    // change controller
-                }
+                self.rootController.present(self.mainController, animated: true, completion: nil)
+                
             }
             else {
                 print("can not log in")
