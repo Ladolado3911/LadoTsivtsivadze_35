@@ -18,6 +18,8 @@ class MainController: UIViewController {
         guard let user = usersManager.loggedInUser else { return nil }
         let userPosts = postsManager.getUserPosts(user: user)
         let everyPosts = postsManager.posts
+        print("this")
+        print(everyPosts)
         return everyPosts
     }
     
@@ -46,6 +48,10 @@ class MainController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("this")
+        print(data!.map {
+            $0.title
+        })
         tblView.reloadData()
         print(usersManager.loggedInUsers!.map { $0.username })
     }
@@ -90,6 +96,7 @@ extension MainController: Table {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = data else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell
+
         return cell!
     }
     

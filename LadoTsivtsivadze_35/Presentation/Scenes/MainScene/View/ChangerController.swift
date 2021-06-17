@@ -83,13 +83,13 @@ class ChangerController: UIViewController {
         if titleTextView.text == "" || contentTextView.text == "" {
             return
         }
-        
+        print("Upload")
         let loggedinUser = userManager.loggedInUser
-        
+
         newPost = postManager.newPost(title: self.titleTextView.text,
                                        content: self.contentTextView.text,
                                        image: tempImgData)
-        
+
         loggedinUser?.addToPosts(newPost!)
     }
 }
