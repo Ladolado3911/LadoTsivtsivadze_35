@@ -14,14 +14,15 @@ class MainController: UIViewController {
     private var postsManager: PostsManager!
     private var viewModel: MainViewModel!
     
-    var data: [Post]? {
-        print("in data")
-        guard let user = usersManager.loggedInUser else { return nil }
-        let userPosts = postsManager.getUserPosts(user: user)
-        //let everyPosts = postsManager.posts
-        //print(everyPosts)
-        return userPosts
-    }
+//    var data: [Post]? {
+//        print("in data")
+//        guard let user = usersManager.loggedInUser else { return nil }
+//        let userPosts = postsManager.getUserPosts(user: user)
+//        //let everyPosts = postsManager.posts
+//        //print(everyPosts)
+//        return userPosts
+//    }
+    var data = [Post]()
     
     private lazy var changeController: ChangerController = {
         let vc = getController(storyboardID: .main, controllerID: .Changer) as? ChangerController
@@ -55,17 +56,19 @@ class MainController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tblView.reloadData()
+        //refresh()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("this")
-        print(data!.map {
-            $0.title
-        })
-        tblView.reloadData()
-        print(usersManager.loggedInUsers!.map { $0.username })
+        refresh()
+    }
+    
+    func refresh() {
+        postsManager.getPosts { posts in
+            self.data = posts
+            self.tblView.reloadData()
+        }
     }
     
     func configViewModel() {
@@ -108,24 +111,10 @@ class MainController: UIViewController {
 
 extension MainController: Table {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if var data = data {
-            data = data.filter { $0.title != nil }
-            print("unwrapped")
-            //print(data.count)
-            //print(data)
-            return data.count
-        }
-        else {
-            print("can not unwrap")
-            return 0
-        }
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = data else {
-            print("did not unwrap")
-            return PostCell()
-        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell
         
         let post = data[indexPath.row]

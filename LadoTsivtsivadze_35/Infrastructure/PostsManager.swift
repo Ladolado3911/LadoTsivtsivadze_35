@@ -26,11 +26,11 @@ final class PostsManager: PostsManagerProtocol {
         return obj
     }
     
-    var posts: [Post]? {
-        guard let postObject = postObject else { return nil }
-        guard let entities = getPosts(managedObject: postObject) else { return nil }
-        return entities
-    }
+//    var posts: [Post]? {
+//        guard let postObject = postObject else { return nil }
+//        guard let entities = getPosts(managedObject: postObject) else { return nil }
+//        return entities
+//    }
     
     init(with persistent2: PersistentManagerProtocol) {
         persistent = persistent2
@@ -52,18 +52,17 @@ final class PostsManager: PostsManagerProtocol {
     }
 
 
-    func getPosts(managedObject obj: NSManagedObject) -> [Post]? {
-        guard let context = context else { return nil }
-        guard let name = obj.entity.name else { return nil }
-        let request = NSFetchRequest<NSManagedObject>(entityName: "Post")
-        
+    func getPosts(completion: @escaping ([Post]) -> Void) {
+        guard let context = context else { return }
+
         do {
-            let entities = try context.fetch(request) as? [Post]
-            return entities
+            let request = NSFetchRequest<Post>(entityName: "Post")
+            let entities = try context.fetch(request)
+            completion(entities)
         }
         catch {
             print(error)
-            return nil
+            completion([])
         }
     }
     
