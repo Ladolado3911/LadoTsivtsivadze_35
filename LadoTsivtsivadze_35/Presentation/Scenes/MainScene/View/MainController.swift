@@ -120,7 +120,6 @@ extension MainController: Table {
         let post = data[indexPath.row]
         print(data)
         cell!.post = post
-        
 
         //print("trying tp return cell")
         return cell!
@@ -128,6 +127,25 @@ extension MainController: Table {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         200
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let post = data[indexPath.row]
+        let loggedInUser = usersManager.loggedInUser
+
+        if loggedInUser == post.user {
+            let action = UIContextualAction(style: .normal, title: "edit") { action, view, completion in
+                action.backgroundColor = .blue
+                print("time to edit")
+                
+                
+            }
+            let config = UISwipeActionsConfiguration(actions: [action])
+            return config
+        }
+        else {
+            return nil
+        }
     }
 }
 
