@@ -18,6 +18,8 @@ class PostCell: UITableViewCell {
     var title2: String?
     var content2: String?
     
+    var post: Post?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,14 +27,22 @@ class PostCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        guard let post2 = post else { return }
         
-        guard let picData = picData else { return }
-        guard let title2 = title2 else { return }
-        guard let content2 = content2 else { return }
-
-        let img = UIImage(data: picData)
-        picture.image = img
-        title.text = title2
-        content.text = content2
+        if let picData = post2.picture {
+            let img = UIImage(data: picData)
+            picture.image = img
+        }
+        else {
+            print("Could not set image")
+        }
+        
+        if let ttl = post2.title {
+            title.text = ttl
+        }
+        
+        if let cnt = post2.content {
+            content.text = cnt
+        }
     }
 }

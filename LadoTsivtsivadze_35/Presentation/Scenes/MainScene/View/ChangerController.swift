@@ -88,10 +88,10 @@ class ChangerController: UIViewController {
 
         postManager.newPost(title: self.titleTextView.text,
                             content: self.contentTextView.text,
-                            image: tempImgData) {
+                            image: tempImgData,
+                            user: loggedinUser!) {success in
             
-            $0!.user = loggedinUser
-            loggedinUser?.addToPosts($0!)
+            print(success)
             self.controllerPointer!.tblView.reloadData()
         }
     }

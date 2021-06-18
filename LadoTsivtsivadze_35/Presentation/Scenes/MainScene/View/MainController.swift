@@ -16,11 +16,11 @@ class MainController: UIViewController {
     
     var data: [Post]? {
         print("in data")
-        //guard let user = usersManager.loggedInUser else { return nil }
-        //let userPosts = postsManager.getUserPosts(user: user)
-        let everyPosts = postsManager.posts
+        guard let user = usersManager.loggedInUser else { return nil }
+        let userPosts = postsManager.getUserPosts(user: user)
+        //let everyPosts = postsManager.posts
         //print(everyPosts)
-        return everyPosts
+        return userPosts
     }
     
     private lazy var changeController: ChangerController = {
@@ -49,7 +49,7 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        //postsManager.clearPosts()
+        postsManager.clearPosts()
         // Do any additional setup after loading the view.
     }
     
@@ -111,8 +111,8 @@ extension MainController: Table {
         if var data = data {
             data = data.filter { $0.title != nil }
             print("unwrapped")
-            print(data.count)
-            print(data)
+            //print(data.count)
+            //print(data)
             return data.count
         }
         else {
@@ -129,9 +129,9 @@ extension MainController: Table {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell
         
         let post = data[indexPath.row]
-        cell!.title2 = post.title
-        cell!.content2 = post.content
-        cell!.picData = post.picture
+        print(data)
+        cell!.post = post
+        
 
         //print("trying tp return cell")
         return cell!

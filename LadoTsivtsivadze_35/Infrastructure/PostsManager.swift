@@ -55,7 +55,7 @@ final class PostsManager: PostsManagerProtocol {
     func getPosts(managedObject obj: NSManagedObject) -> [Post]? {
         guard let context = context else { return nil }
         guard let name = obj.entity.name else { return nil }
-        let request = NSFetchRequest<NSManagedObject>(entityName: name)
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Post")
         
         do {
             let entities = try context.fetch(request) as? [Post]
@@ -75,19 +75,18 @@ final class PostsManager: PostsManagerProtocol {
     func newPost(title ttl: String,
                  content cnt: String,
                  image img: Data,
-                 completion: @escaping (Post?) -> Void) {
+                 user usr: User,
+                 completion: @escaping (Bool) -> Void) {
+        
         guard let context = context else { return }
         let post = Post(context: context)
         post.title = ttl
         post.content = cnt
         post.picture = img
         
-        do {
-            try context.save()
-        }
-        catch {
-            print(error)
-        }
-        completion(post)
+        post.user = usr
+        usr.addToPosts(post)
+        
+        persistent.create(with: post, completion: completion)
     }
 }
