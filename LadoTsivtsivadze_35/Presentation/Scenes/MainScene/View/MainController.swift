@@ -137,7 +137,14 @@ extension MainController: Table {
             let action = UIContextualAction(style: .normal, title: "edit") { action, view, completion in
                 action.backgroundColor = .blue
                 print("time to edit")
+                let vc = self.changeController
                 
+                vc.editingMode = .editPost
+                vc.titleTextView.text = post.title
+                vc.contentTextView.text = post.content
+                vc.post = post
+                
+                pushController(from: self, to: vc, method: .withBackItem)
                 
             }
             let config = UISwipeActionsConfiguration(actions: [action])

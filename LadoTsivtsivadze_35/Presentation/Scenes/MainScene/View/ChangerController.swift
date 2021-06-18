@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum EditingMode {
     case editPost
@@ -23,6 +24,10 @@ class ChangerController: UIViewController {
     var usersManager: UsersManager?
     
     var tempImgData: Data?
+    
+    var context: NSManagedObjectContext? {
+        return (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    }
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var contentTextView: UITextView!
@@ -79,20 +84,43 @@ class ChangerController: UIViewController {
         guard let userManager = usersManager else { return }
         guard let postManager = postsManager else { return }
         guard let tempImgData = tempImgData else { return }
+        guard let context = context else { return }
         
         if titleTextView.text == "" || contentTextView.text == "" {
             return
         }
-        print("Upload")
-        let loggedinUser = userManager.loggedInUser
+        
+        switch editingMode {
+        case .newPost:
+            print("Upload")
+            let loggedinUser = userManager.loggedInUser
 
-        postManager.newPost(title: self.titleTextView.text,
-                            content: self.contentTextView.text,
-                            image: tempImgData,
-                            user: loggedinUser!) {success in
+            postManager.newPost(title: self.titleTextView.text,
+                                content: self.contentTextView.text,
+                                image: tempImgData,
+                                user: loggedinUser!) {success in
+                
+                print(success)
+                self.controllerPointer!.tblView.reloadData()
+            }
+        case .editPost:
+            print("Edit")
             
-            print(success)
-            self.controllerPointer!.tblView.reloadData()
+            guard let post = post else { return }
+            
+            post.title = titleTextView.text
+            post.content = contentTextView.text
+            post.picture = tempImgData
+            
+            do {
+                try context.save()
+            }
+            catch {
+                print(error)
+            }
+            
+        default:
+            break
         }
     }
 }
