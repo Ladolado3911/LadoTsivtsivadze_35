@@ -86,11 +86,14 @@ class ChangerController: UIViewController {
         print("Upload")
         let loggedinUser = userManager.loggedInUser
 
-        newPost = postManager.newPost(title: self.titleTextView.text,
-                                       content: self.contentTextView.text,
-                                       image: tempImgData)
-
-        loggedinUser?.addToPosts(newPost!)
+        postManager.newPost(title: self.titleTextView.text,
+                            content: self.contentTextView.text,
+                            image: tempImgData) {
+            
+            $0!.user = loggedinUser
+            loggedinUser?.addToPosts($0!)
+            self.controllerPointer!.tblView.reloadData()
+        }
     }
 }
 

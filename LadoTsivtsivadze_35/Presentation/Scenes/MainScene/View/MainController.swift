@@ -88,6 +88,7 @@ class MainController: UIViewController {
         vc.editingMode = .newPost
         vc.postsManager = postsManager
         vc.usersManager = usersManager
+        vc.controllerPointer = self
         pushController(from: self, to: vc, method: .withBackItem)
     }
     

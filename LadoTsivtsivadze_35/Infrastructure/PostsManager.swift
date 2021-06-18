@@ -72,8 +72,11 @@ final class PostsManager: PostsManagerProtocol {
         return posts
     }
 
-    func newPost(title ttl: String, content cnt: String, image img: Data) -> Post? {
-        guard let context = context else { return nil }
+    func newPost(title ttl: String,
+                 content cnt: String,
+                 image img: Data,
+                 completion: @escaping (Post?) -> Void) {
+        guard let context = context else { return }
         let post = Post(context: context)
         post.title = ttl
         post.content = cnt
@@ -85,6 +88,6 @@ final class PostsManager: PostsManagerProtocol {
         catch {
             print(error)
         }
-        return post
+        completion(post)
     }
 }
